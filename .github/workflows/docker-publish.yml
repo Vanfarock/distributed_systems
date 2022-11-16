@@ -36,5 +36,5 @@ jobs:
         run: docker build -f internal/${{ env.project }}/Dockerfile -t ${{ env.project }}:${{ env.version }} .
         
       - name: Publish
-        run: docker push ${{ env.project }}:${{ env.version }}
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.project }}:${{ env.version }}
           
