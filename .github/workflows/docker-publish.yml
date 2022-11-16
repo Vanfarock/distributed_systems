@@ -33,8 +33,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build
-        run: docker build -f internal/${{ env.project }}/Dockerfile -t ${{ env.project }}:${{ env.version }} .
+        run: |
+          docker build -f internal/${{ env.project }}/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ env.project }}:${{ env.version }} .
         
       - name: Publish
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.project }}:${{ env.version }}
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.project }}:${{ env.version }}
           
