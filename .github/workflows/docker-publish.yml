@@ -34,7 +34,7 @@ jobs:
 
       - name: Build
         run: |
-          docker build -f internal/${{ env.project }}/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ env.project }}:${{ env.version }} .
+          docker build -f pkg/${{ env.project }}/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ env.project }}:${{ env.version }} .
         
       - name: Publish
         run: |
