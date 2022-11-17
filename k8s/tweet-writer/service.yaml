@@ -1,0 +1,34 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-11-16T01:03:50Z"
+  labels:
+    app: tweet-writer
+  name: tweet-writer
+  namespace: default
+  resourceVersion: "36325"
+  uid: 7fe0a24a-078a-4101-838a-bdb93b41ef14
+spec:
+  clusterIP: 10.96.176.22
+  clusterIPs:
+  - 10.96.176.22
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30504
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: tweet-writer
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

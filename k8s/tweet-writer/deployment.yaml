@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2022-11-16T01:03:02Z"
+  generation: 4
+  labels:
+    app: tweet-writer
+  name: tweet-writer
+  namespace: default
+  resourceVersion: "36687"
+  uid: 14d57b5b-639a-49f8-a44f-09d166736db7
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: tweet-writer
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: tweet-writer
+    spec:
+      containers:
+      - image: vanfarock/tweet_writer:v1.0.0
+        imagePullPolicy: IfNotPresent
+        name: tweet-writer-82dtx
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
