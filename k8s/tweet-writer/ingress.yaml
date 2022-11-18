@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tweet-writer-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /tweet
+        backend:
+          service:
+            name: tweet-writer
+            port:
+              number: 8080
