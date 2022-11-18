@@ -4,6 +4,7 @@ metadata:
   labels:
     app: tweet-writer
   name: tweet-writer
+  namespace: tweet-writer
 spec:
   progressDeadlineSeconds: 600
   replicas: 3

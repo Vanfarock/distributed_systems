@@ -1,15 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: tweet-writer-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: "/$2"
+  name: tweet-writer
+  namespace: tweet-writer
 spec:
   rules:
   - http:
       paths:
       - pathType: Prefix
-        path: /tweet
+        path: "/tweet(/|$)(.*)"
         backend:
           service:
             name: tweet-writer
             port:
               number: 8080
+              

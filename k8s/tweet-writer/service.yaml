@@ -8,6 +8,7 @@ metadata:
   labels:
     app: tweet-writer
   name: tweet-writer
+  namespace: tweet-writer
 spec:
   selector:
     app: tweet-writer
