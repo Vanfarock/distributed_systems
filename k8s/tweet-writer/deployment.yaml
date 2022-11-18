@@ -8,7 +8,7 @@ metadata:
   labels:
     app: tweet-writer
   name: tweet-writer
-  namespace: default
+  namespace: tweet-writer
   resourceVersion: "36687"
   uid: 14d57b5b-639a-49f8-a44f-09d166736db7
 spec:
