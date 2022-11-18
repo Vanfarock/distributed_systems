@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Setting cluster up..."
-kind create cluster --name twitter --config kind-config.yaml
+kind create cluster --name twitter --config ./kind/kind-config.yaml
