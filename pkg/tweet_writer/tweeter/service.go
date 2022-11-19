@@ -1,9 +1,9 @@
-package tweet
+package tweeter
 
 import "errors"
 
 type TweetService interface {
-	Tweet(tweet Tweet) error
+	Tweet(tweet *Tweet) error
 }
 
 type DefaultTweetService struct {
@@ -16,12 +16,10 @@ func NewTweetService(tweetRepository TweetRepository) DefaultTweetService {
 	}
 }
 
-func (s DefaultTweetService) Tweet(tweet Tweet) error {
+func (s DefaultTweetService) Tweet(tweet *Tweet) error {
 	if len(tweet.Content) > getTweetMaxChars() {
-		return &TweetCreationError{
-			Err: errors.New("Tweet's contents are greater than maximum allowed"),
-		}
+		return NewTweetCreationError(errors.New("Tweet's contents are greater than maximum allowed"))
 	}
 
-	return s.tweetRepository.Save(tweet)
+	return s.tweetRepository.Create(tweet)
 }
