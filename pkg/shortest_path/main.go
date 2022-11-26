@@ -97,5 +97,5 @@ func main() {
 		c.JSON(http.StatusOK, idsPath)
 	})
 
-	r.Run(":8888")
+	r.Run(":8080")
 }

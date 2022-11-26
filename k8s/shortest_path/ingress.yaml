@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: "/$2"
+  name: shortest-path
+  namespace: shortest-path
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/dfs(/|$)(.*)"
+        backend:
+          service:
+            name: shortest-path
+            port:
+              number: 8080
+              
