@@ -1,0 +1,15 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  labels:
+    app: shortest-path
+  name: hpa
+  namespace: shortest-path
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: shortest-path
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 1

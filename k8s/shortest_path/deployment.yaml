@@ -7,7 +7,7 @@ metadata:
   namespace: shortest-path
 spec:
   progressDeadlineSeconds: 600
-  replicas: 3
+  replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -27,7 +27,9 @@ spec:
       - image: vanfarock/shortest_path:v1.0.0
         imagePullPolicy: IfNotPresent
         name: shortest-path-82dtx
-        resources: {}
+        resources:
+          limits:
+            cpu: 0.1
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         ports:
