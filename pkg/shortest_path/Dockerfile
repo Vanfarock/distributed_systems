@@ -8,6 +8,6 @@ RUN go mod download
 COPY ./pkg/shortest_path .
 RUN go build -o /shortest_path
 
-EXPOSE 8080
+EXPOSE 3333
 
 CMD [ "/shortest_path" ]

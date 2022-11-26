@@ -15,5 +15,5 @@ spec:
           service:
             name: shortest-path
             port:
-              number: 8080
+              number: 3333
               

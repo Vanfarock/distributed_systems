@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Setting up tweet-writer..."
-kubectl create namespace tweet-writer
-kubectl apply -f ./k8s/tweet-writer/deployment.yaml -n tweet-writer
-kubectl apply -f ./k8s/tweet-writer/service.yaml -n tweet-writer
-kubectl apply -f ./k8s/tweet-writer/ingress.yaml -n tweet-writer
+echo "Setting up shortest-path..."
+kubectl create namespace shortest-path
+kubectl apply -f ./k8s/shortest_path/deployment.yaml -n shortest-path
+kubectl apply -f ./k8s/shortest_path/service.yaml -n shortest-path
+kubectl apply -f ./k8s/shortest_path/ingress.yaml -n shortest-path
 
 sleep 1
