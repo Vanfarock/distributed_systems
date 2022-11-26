@@ -12,7 +12,7 @@ on:
         type: choice
         required: true
         options:
-          - tweet_writer
+          - shortest_path
 
 env:
   version: ${{ github.event.inputs.version }}
